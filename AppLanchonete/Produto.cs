@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Channels;
 using System.Threading.Tasks;
 
-namespace sd
+namespace AppLanchonete
 {
     public class Produto
     {
