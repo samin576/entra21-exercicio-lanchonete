@@ -1,21 +1,40 @@
 ﻿using AppLanchonete;
 using System;
+using System.Globalization;
+using System.Text.Json.Serialization.Metadata;
 class Program
 {
     static void Main(string[] Args)
     {
 
 
-        Pedido pedido1 = new Pedido();
-        pedido1.NumeroPedido = 1;
-        pedido1.Itens();
-        pedido1.Lista();
+        string decisao;
+        int n1 = 1;
+        do
+        {
+           
+            for (int i = 0; i <n1 ; i++)
+            {
+                Pedido pedido1 = new Pedido();
+                pedido1.NumeroPedido = n1;
+                pedido1.Itens();
+                pedido1.Lista();
+            }
+            
+            Console.WriteLine("\nSe quiser sair, digite q. Senão, digite qualquer outra coisa");
+            decisao = Console.ReadLine().ToLower();
+            if (decisao != "q")
+            {
+                n1++;
+            }
+           
+           
 
-        //Pedido pedido2 = new Pedido();
-        //pedido2.NumeroPedido = 2;
-        //pedido2.listaProduto.Add(agua);
-        //pedido2.Lista();
 
+        } while (decisao != "q");
+        Console.WriteLine("Tudo bem. Tchau!");
+
+      
 
     }
 }
