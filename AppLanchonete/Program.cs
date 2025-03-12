@@ -6,52 +6,31 @@ class Program
 {
     static void Main(string[] Args)
     {
-        operacoes operacoes = new operacoes();
-        int operacao;
-        do
+        try
         {
-            Menu();
-            operacao = int.Parse(Console.ReadLine());
-            Console.Clear();
-            Escolha(operacao, operacoes);
-            if (operacao >= 0 && operacao <= 4)
+            operacoes operacoes = new operacoes();
+            int operacao;
+            do
             {
+                Menu();
+                operacao = int.Parse(Console.ReadLine());
+                Escolha(operacao, operacoes);
+                if (operacao != 0)
+                {
+                    Console.WriteLine("\n--Dê enter para sair--");
+                    Console.ReadLine();
+                }
                 Console.Clear();
-            }
-
-
-        } while (operacao != 0);
-        Console.WriteLine("Tudo bem! Adeus!");
-       
-
-
-        //string decisao;
-        //int n1 = 1;
-        //do
-        //{
-
-        //    for (int i = 0; i < n1; i++)
-        //    {
-        //        Pedido pedido1 = new Pedido();
-        //        pedido1.NumeroPedido = n1;
-        //        pedido1.Itens();
-        //        pedido1.Lista();
-        //    }
-
-        //    Console.WriteLine("\nSe quiser sair, digite q. Senão, digite qualquer outra coisa");
-        //    decisao = Console.ReadLine().ToLower();
-        //    if (decisao != "q")
-        //    {
-        //        n1++;
-        //    }
 
 
 
-
-
-
-        //} while (decisao != "q");
-        //Console.WriteLine("Tudo bem. Tchau!");
+            } while (operacao != 0);
+            Console.WriteLine("Tudo bem! Adeus!");
+        }
+        catch(Exception e)
+        {
+            Console.WriteLine("Ops! Você fez algo errado. Reinicie o programa!");
+        }
     }
     static void Menu()
     {
@@ -64,11 +43,11 @@ class Program
     }
     static void Escolha(int n1, operacoes operacoes)
     {
-       
+
 
         switch (n1)
         {
-            
+
             case 1:
                 operacoes.CadastrarNovoProduto();
                 break;
@@ -76,15 +55,17 @@ class Program
                 operacoes.ListarProdutos();
                 break;
             case 3:
+                operacoes.FazerPedido();
                 break;
             case 4:
+                operacoes.Lista();
                 break;
             case 0:
                 break;
             default:
                 Console.WriteLine("Você não digitou nenhuma opção válida!");
                 break;
-            
+
 
         }
     }
