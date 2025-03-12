@@ -72,10 +72,10 @@ namespace AppLanchonete
             
             for (int i = 0; i < lista.Count; i++)
             {
-                Console.WriteLine($" Produto {i} - {lista[i].NomeProduto}");
+                Console.WriteLine($" Produto {i} - {lista[i].NomeProduto} = {lista[i].PrecoProduto} reais");
             }
             double total = Somatotal();
-            Console.WriteLine($"\nO preço total é de {total}");
+            Console.WriteLine($"\nO preço total é de {total} reais");
         }
         public double Somatotal()
         {
