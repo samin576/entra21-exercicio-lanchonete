@@ -51,7 +51,7 @@ namespace AppLanchonete
                 {
                     for (int i = 0; i < produtos.Count; i++)
                     {
-                        Console.WriteLine($"{i+1} - {produtos[i].NomeProduto} = {produtos[i].PrecoProduto} reais");
+                        Console.WriteLine($"{i} - {produtos[i].NomeProduto} = {produtos[i].PrecoProduto} reais");
                     }
 
                     Console.WriteLine("Qual item deseja selecionar?");
