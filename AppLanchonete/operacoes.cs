@@ -67,15 +67,22 @@ namespace AppLanchonete
             }
            
         }
-        public void Lista()
+        public void Lista()//Ver como arrumar o pedido. Fazer pedido1, pedido2 e aparecer o número do pedido
         {
-            
-            for (int i = 0; i < lista.Count; i++)
+            if(lista.Count == 0)
             {
-                Console.WriteLine($" Produto {i} - {lista[i].NomeProduto} = {lista[i].PrecoProduto} reais");
+                Console.WriteLine("Você não fez nenhum pedido!");
             }
-            double total = Somatotal();
-            Console.WriteLine($"\nO preço total é de {total} reais");
+            else
+            {
+                for (int i = 0; i < lista.Count; i++)
+                {
+                    Console.WriteLine($"Produto {i} - {lista[i].NomeProduto} = {lista[i].PrecoProduto} reais");
+                }
+                double total = Somatotal();
+                Console.WriteLine($"\nO preço total do pedido é de {total} reais");
+
+            }
         }
         public double Somatotal()
         {
