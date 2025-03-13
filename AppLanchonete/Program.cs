@@ -29,15 +29,15 @@ class Program
         }
         catch(Exception e)
         {
-            Console.WriteLine("Ops! Você fez algo errado. Reinicie o programa!");
+            Console.WriteLine($"Ops! Você fez algo errado. Reinicie o programa! {e.Message}");
         }
     }
     static void Menu()
     {
         Console.WriteLine("1 - Cadastrar novo produto");
-        Console.WriteLine("2 - Listar produto");
+        Console.WriteLine("2 - Listar produtos");
         Console.WriteLine("3 - Fazer pedido");
-        Console.WriteLine("4 - Lista");
+        Console.WriteLine("4 - Ver pedidos feitos");
         Console.WriteLine("0 - Sair");
 
     }

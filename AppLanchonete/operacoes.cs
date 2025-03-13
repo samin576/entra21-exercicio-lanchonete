@@ -9,7 +9,7 @@ namespace AppLanchonete
     class operacoes
     {
         public List<Produto> produtos = new List<Produto>();
-        public List<Produto> lista = new List<Produto>();
+        public List<Pedido> lista = new List<Pedido>();
         public void CadastrarNovoProduto()
         {
 
@@ -31,7 +31,7 @@ namespace AppLanchonete
             {
                 for (int i = 0; i < produtos.Count; i++)
                 {
-                    Console.WriteLine($"{i} - {produtos[i].NomeProduto} = {produtos[i].PrecoProduto} reais");
+                    Console.WriteLine($"{i+1} - {produtos[i].NomeProduto} = {produtos[i].PrecoProduto} reais");
                 }
             }
             //foreach(var i in produtos)// ver o que é var
@@ -45,57 +45,53 @@ namespace AppLanchonete
             }
             else
             {
+                int numeroPedido = lista.Count + 1;
+                Pedido novoPedido = new Pedido(numeroPedido);
                 do
                 {
                     for (int i = 0; i < produtos.Count; i++)
                     {
-                        Console.WriteLine($"{i} - {produtos[i].NomeProduto} = {produtos[i].PrecoProduto} reais");
+                        Console.WriteLine($"{i+1} - {produtos[i].NomeProduto} = {produtos[i].PrecoProduto} reais");
                     }
-                  
+
                     Console.WriteLine("Qual item deseja selecionar?");
                     int n1 = int.Parse(Console.ReadLine());
-                    lista.Add(produtos[n1]);
+                    novoPedido.Produtos.Add(produtos[n1]);
                     Console.WriteLine("Item adicionado! Gostaria de adicionar mais algum? S/N");
                     resposta = Console.ReadLine().ToUpper();
-                    if(resposta == "S")
+                    if (resposta == "S")
                     {
                         Console.Clear();
                     }
-                   
-                    
+
+
                 } while (resposta != "N");
+                lista.Add(novoPedido);
+                Console.WriteLine($"Pedido #{novoPedido.NumeroPedido} registrado! =)");
             }
-           
+
         }
-        public void Lista()//Ver como arrumar o pedido. Fazer pedido1, pedido2 e aparecer o número do pedido
+        public void Lista()
         {
-            if(lista.Count == 0)
+            if (lista.Count == 0)
             {
                 Console.WriteLine("Você não fez nenhum pedido!");
             }
             else
             {
-                for (int i = 0; i < lista.Count; i++)
+                foreach (var pedido in lista)
                 {
-                    Console.WriteLine($"Produto {i} - {lista[i].NomeProduto} = {lista[i].PrecoProduto} reais");
+                    Console.WriteLine($"\nPedido #{pedido.NumeroPedido}:");
+                    for (int i = 0; i < pedido.Produtos.Count; i++)
+                    {
+                        Console.WriteLine($"Produto {i + 1} - {pedido.Produtos[i].NomeProduto} = {pedido.Produtos[i].PrecoProduto} reais");
+                    }
+                    double total = pedido.SomarTotal();
+                    Console.WriteLine($"Preço total do Pedido #{pedido.NumeroPedido}: {total} reais");
                 }
-                double total = Somatotal();
-                Console.WriteLine($"\nO preço total do pedido é de {total} reais");
-
             }
         }
-        public double Somatotal()
-        {
-            double soma = 0;
-            for(int i=0; i<lista.Count; i++)
-            {
-                soma += lista[i].PrecoProduto;
-            }
-            return soma;
-          
-
-            
-        }
+       
 
     }
 }
