@@ -1,4 +1,7 @@
-# 🍔 PROJETO ENTRA 21 - Lanchonete
+# 🍔 PROJETO ENTRA 21 - Lanchonete 
+
+#### Feito em Mar/2025
+
 
 ## 📌 Descrição  
 Este projeto simula o funcionamento de uma lanchonete, permitindo gerenciar pedidos, calcular totais e organizar o cardápio. Foi desenvolvido como parte do curso **Entra 21** e marcou minha primeira experiência com **Programação Orientada a Objetos (POO)**
